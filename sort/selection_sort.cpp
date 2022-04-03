@@ -2,13 +2,18 @@
 
 using namespace std;
 
-int arr[5] = {3, 5, 2, 4, 1};
-
 void sortAsc () {
-  for (int i = 0; i < 4; i++) {
+  int n;
+  cin >> n;
+
+  int arr[n];
+  for (int i = 0; i < n; i++) {
+    cin >> arr[i];
+  }
+  for (int i = 0; i < n-1; i++) {
     int min_index = i;
 
-    for (int j = i + 1; j < 5; j++) {
+    for (int j = i + 1; j < n; j++) {
       if (arr[min_index] > arr[j]) {
         min_index = j;
       }
@@ -20,17 +25,25 @@ void sortAsc () {
       arr[min_index] -= arr[i]; 
     }
   }
-  for (int i=0; i < 5; i++) {
-    cout << arr[i];
+  for (int i=0; i < n; i++) {
+    cout << arr[i] << endl;
   }
 }
 
 void sortDesc () {
-  for (int i = 0; i < 4; i++) {
+  int n;
+  cin >> n;
+
+  int arr[n];
+  for (int i=0; i<n; i++) {
+    cin >> arr[i];
+  }
+
+  for (int i = 0; i < n-1; i++) {
     int max_index = i;
 
     // MAX INDEX 찾기
-    for (int j = i + 1; j < 5; j++) {
+    for (int j = i + 1; j < n; j++) {
       if (arr[max_index] < arr[j]) {
         max_index = j;
       }
@@ -42,7 +55,7 @@ void sortDesc () {
       arr[i] -= arr[max_index];
     }
   }
-  for (int i=0; i < 5; i++) {
+  for (int i=0; i < n; i++) {
     cout << arr[i];
   }
 }
