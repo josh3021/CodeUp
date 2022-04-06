@@ -1,5 +1,6 @@
 #include <iostream>
 
+// 기존 정렬된 배열 사이에 새로운 원소를 올바른 자리에 찾아 삽입하는 정렬
 int main (void) {
   int i, j, temp;
   int arr[10] = {5, 9, 8, 1, 4, 10, 2, 7, 6, 3};

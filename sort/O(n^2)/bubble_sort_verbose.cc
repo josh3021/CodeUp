@@ -1,5 +1,6 @@
 #include <iostream>
 
+// 서로 인접한 두 원소를 검사하여 정렬하는 알고리즘
 void bubble_sort_asc (void) {
   // Bubble Sort는 시간 복잡도 O(n^2)를 가진 Selection Sort와 Insert Sort와 함께 가장 대표적인 정렬 알고리즘입니다.
   // 최악 효율의 정렬방법이지만, 가장 기본적인 정렬 중 하나이니 필수로 알아 두셔야 합니다.

@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// 현재 위치에 들어갈 데이터를 찾아 선택하는 알고리즘
 int main (void) {
   // Selection Sort는 시간 복잡도 O(n^2)를 가진 Bubble Sort와 Insert Sort와 함께 가장 대표적인 정렬 알고리즘입니다.
   // 효율이 낮은 배열이지만, 가장 기본적인 정렬 중 하나이니 필수로 알아 두셔야 합니다.
