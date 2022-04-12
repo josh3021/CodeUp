@@ -2,7 +2,7 @@
 #include <string.h>
 
 int main(void) {
-  char s[5];
+  char s[100];
   scanf("%s", s);
   int r = strcmp(s, "love");
   if (r == 0) {
