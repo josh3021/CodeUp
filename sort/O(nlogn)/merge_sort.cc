@@ -2,16 +2,17 @@
 
 int sorted[10];
 
-void merge(int arr[], int start, int middle, int end) {
+void merge(int* arr, int start, int middle, int end) {
   int i = start;
   int j = middle + 1;
-  int k = start;
+  int k = i;
 
-  while(i <= middle && j <= end) {
+  while (i <= middle && j <= end) {
     if (arr[i] <= arr[j]) {
       sorted[k] = arr[i];
       i++;
-    } else {
+    }
+    else {
       sorted[k] = arr[j];
       j++;
     }
@@ -19,35 +20,43 @@ void merge(int arr[], int start, int middle, int end) {
   }
 
   if (i > middle) {
-    for (int t = j; t <= end; t++) {
-      sorted[k] = arr[t];
-      k++;
-    }
-  } else {
-    for (int t = i; t <= middle; t++) {
-      sorted[k] = arr[t];
+    while (j <= end) {
+      sorted[k] = arr[j];
+      j++;
       k++;
     }
   }
-  for (int t = start; t <= end; t++) {
-    arr[t] = sorted[t];
+  else {
+    while(i <= middle) {
+      sorted[k] = arr[i];
+      i++;
+      k++;
+    }
+  }
+
+  i=0;
+  while (i <= end) {
+    arr[i] = sorted[i];
+    i++;
   }
 }
 
-void merge_sort(int arr[], int start, int end) {
-  if (start < end) {
-    int middle = (start + end) / 2;
-    merge_sort(arr, start, middle);
-    merge_sort(arr, middle+1, end);
-    merge(arr, start, middle, end);
+void merge_sort(int* arr, int start, int end) {
+  if (start >= end) {
+    return;
   }
+
+  int middle = (start + end) / 2;
+  merge_sort(arr, start, middle);
+  merge_sort(arr, middle + 1, end);
+  merge(arr, start, middle, end);
 }
 
-int main (void ) {
-  int arr[10] = {6, 3,4,0, 9 ,1,91 ,2, 8, 77};
+int main(void) {
+  int arr[10] = {10, 45, 2,4,6, 2, -20, 5,2,6};
   merge_sort(arr, 0, 9);
-
-  for (int i=0; i< 10; i++) {
-    printf("%d ", arr[i]);
+  for (int i=0; i<10; i++) {
+    printf("%d ", sorted[i]);
   }
+  return 0;
 }
